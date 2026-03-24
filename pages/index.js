@@ -22,8 +22,8 @@ function KPICard({ title, value, subtitle, icon, color, trend }) {
       cursor: 'default',
       borderLeft: `4px solid ${color}`,
     }}
-    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)'; }}
-    onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)'; }}
+      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)'; }}
+      onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)'; }}
     >
       <div style={{
         width: 48, height: 48, borderRadius: 12,
@@ -95,7 +95,7 @@ export default function Dashboard() {
       Chart.defaults.plugins.legend.labels.usePointStyle = true;
       Chart.defaults.plugins.legend.labels.padding = 16;
 
-      const colors = ['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4','#84cc16','#f97316','#6366f1','#14b8a6','#e11d48','#a855f7','#22c55e','#eab308'];
+      const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4', '#84cc16', '#f97316', '#6366f1', '#14b8a6', '#e11d48', '#a855f7', '#22c55e', '#eab308'];
 
       // Destroy existing
       Object.values(chartInstances.current).forEach(c => c && c.destroy());
@@ -115,7 +115,7 @@ export default function Dashboard() {
       if (chartRefs.location.current) {
         chartInstances.current.location = new Chart(chartRefs.location.current, {
           type: 'doughnut',
-          data: { labels: Object.keys(data.charts.locationDistribution), datasets: [{ data: Object.values(data.charts.locationDistribution), backgroundColor: ['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4'], borderWidth: 0, spacing: 2 }] },
+          data: { labels: Object.keys(data.charts.locationDistribution), datasets: [{ data: Object.values(data.charts.locationDistribution), backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4'], borderWidth: 0, spacing: 2 }] },
           options: { responsive: true, maintainAspectRatio: false, cutout: '65%', plugins: { legend: { position: 'right', labels: { font: { size: 12 }, padding: 12 } } } }
         });
       }
@@ -163,7 +163,7 @@ export default function Dashboard() {
       if (chartRefs.payment.current) {
         chartInstances.current.payment = new Chart(chartRefs.payment.current, {
           type: 'doughnut',
-          data: { labels: Object.keys(data.charts.paymentStatus), datasets: [{ data: Object.values(data.charts.paymentStatus), backgroundColor: ['#ef4444','#f59e0b','#10b981','#3b82f6','#8b5cf6'], borderWidth: 0, spacing: 2 }] },
+          data: { labels: Object.keys(data.charts.paymentStatus), datasets: [{ data: Object.values(data.charts.paymentStatus), backgroundColor: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6'], borderWidth: 0, spacing: 2 }] },
           options: { responsive: true, maintainAspectRatio: false, cutout: '65%', plugins: { legend: { position: 'right', labels: { font: { size: 11 }, padding: 10 } } } }
         });
       }
@@ -209,6 +209,8 @@ export default function Dashboard() {
       <Head>
         <title>Sahu Group - Stock Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/Sahu_Logo2.svg" />
+        <link rel="apple-touch-icon" href="/Sahu_Logo2.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -242,7 +244,9 @@ export default function Dashboard() {
         <header style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)', color: '#fff', padding: '20px 0', position: 'sticky', top: 0, zIndex: 100, boxShadow: '0 2px 12px rgba(0,0,0,0.15)' }}>
           <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-              <div style={{ width: 44, height: 44, background: 'linear-gradient(135deg, #3b82f6, #06b6d4)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, fontWeight: 800 }}>SG</div>
+              <div style={{ width: 44, height: 44, background: '#fff', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 5, boxShadow: 'inset 0 0 0 1px rgba(15,23,42,0.08)' }}>
+                <img src="/Sahu_Logo2.svg" alt="Sahu Group logo" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+              </div>
               <div>
                 <h1 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.01em' }}>Sahu Group</h1>
                 <p style={{ fontSize: 12, color: '#94a3b8', fontWeight: 500 }}>Vehicle Stock Analytics Dashboard</p>
@@ -264,7 +268,7 @@ export default function Dashboard() {
             <KPICard title="Allocated" value={kpis.allocatedVehicles.toLocaleString()} subtitle={`${kpis.allocationRate}% allocation rate`} icon="✅" color="#10b981" trend="up" />
             <KPICard title="Unallocated" value={kpis.unallocatedVehicles.toLocaleString()} subtitle="Available for booking" icon="📋" color="#f59e0b" />
             <KPICard title="Payment Received" value={formatCurrency(kpis.totalPaymentReceived)} subtitle={`Avg ${formatCurrency(kpis.avgPayment)} per vehicle`} icon="💰" color="#8b5cf6" />
-            <KPICard title="Pending MDDP" value={kpis.pendingMddp.toLocaleString()} subtitle={`${((kpis.pendingMddp/kpis.totalStock)*100).toFixed(1)}% of total stock`} icon="⏳" color="#ef4444" trend="down" />
+            <KPICard title="Pending MDDP" value={kpis.pendingMddp.toLocaleString()} subtitle={`${((kpis.pendingMddp / kpis.totalStock) * 100).toFixed(1)}% of total stock`} icon="⏳" color="#ef4444" trend="down" />
           </div>
 
           {/* Row 1: Model + Location */}
@@ -347,7 +351,7 @@ export default function Dashboard() {
                 <tbody>
                   {paged.map((r, i) => (
                     <tr key={i}>
-                      <td style={{ color: '#94a3b8', fontSize: 12 }}>{(currentPage-1)*pageSize + i + 1}</td>
+                      <td style={{ color: '#94a3b8', fontSize: 12 }}>{(currentPage - 1) * pageSize + i + 1}</td>
                       <td style={{ fontWeight: 500, maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.customer}</td>
                       <td><span className="badge badge-blue">{r.model}</span></td>
                       <td style={{ fontSize: 12, maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.variant}</td>
@@ -365,12 +369,12 @@ export default function Dashboard() {
             </div>
             {totalPages > 1 && (
               <div style={{ padding: '12px 24px', borderTop: '1px solid #f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: 13, color: '#64748b' }}>
-                <span>Showing {(currentPage-1)*pageSize + 1}-{Math.min(currentPage*pageSize, filtered.length)} of {filtered.length}</span>
+                <span>Showing {(currentPage - 1) * pageSize + 1}-{Math.min(currentPage * pageSize, filtered.length)} of {filtered.length}</span>
                 <div style={{ display: 'flex', gap: 6 }}>
-                  <button onClick={() => setCurrentPage(p => Math.max(1, p-1))} disabled={currentPage === 1}
+                  <button onClick={() => setCurrentPage(p => Math.max(1, p - 1))} disabled={currentPage === 1}
                     style={{ padding: '6px 12px', border: '1px solid #e2e8f0', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 13 }}>← Prev</button>
                   <span style={{ padding: '6px 12px', display: 'flex', alignItems: 'center' }}>Page {currentPage}/{totalPages}</span>
-                  <button onClick={() => setCurrentPage(p => Math.min(totalPages, p+1))} disabled={currentPage === totalPages}
+                  <button onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} disabled={currentPage === totalPages}
                     style={{ padding: '6px 12px', border: '1px solid #e2e8f0', borderRadius: 6, background: '#fff', cursor: 'pointer', fontSize: 13 }}>Next →</button>
                 </div>
               </div>
